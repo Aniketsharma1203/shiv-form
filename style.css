@@ -73,7 +73,7 @@
 /* General styling for the body */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5; /* Light gray background */
+    background: linear-gradient(to bottom right, #b4e8b5, #99c9f2);
     margin: 0;
     padding: 20px;
     display: flex;
@@ -169,7 +169,7 @@ input {
 }
 
 .btn button[type="reset"]:hover {
-    color: wheat;
+    color: rgb(255, 255, 255);
     background-color: #07425b;
 }
 
@@ -224,7 +224,7 @@ p .required{
 .first-row td {
     text-align: center;
     font-weight: bold;
-    background-color: rgba(188, 219, 250, 0.589);
+    background-color: #8cd072;
 }
 
 .sec-row td {
