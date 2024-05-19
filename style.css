@@ -170,7 +170,7 @@ input {
 
 .btn button[type="reset"]:hover {
     color: wheat;
-    background-color: #f47674;
+    background-color: #07425b;
 }
 
 /* Styling for horizontal rule */
@@ -373,5 +373,5 @@ footer {
 }
 .delete-btn:hover {
     color: wheat;
-    background-color: #f47674;
+    background-color: #07425b;
 }
