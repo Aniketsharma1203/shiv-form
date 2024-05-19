@@ -148,24 +148,29 @@ input {
     padding: 10px 20px;
     margin-right: 10px;
     border: none;
-    border-radius: 4px;
-    background-color: #3b453b;
-    color: white;
+    border-radius: 15px;
+    background-color: #07425b;
+    color: rgb(239, 239, 239);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border: 1px solid #2a2d2a;
+    border: 1px solid #bec1be;
+    font-size: 100%;
 }
 
 .btn button:hover {
-    background-color: #44817c;
+    background-color: #8cd072;
+    color: #07425b;
 }
 
 .btn button[type="reset"] {
-    background-color: #414749;
+    font-size: 105%;
+    color: #2a2d2a;
+    background-color:#8cd072;
 }
 
 .btn button[type="reset"]:hover {
-    background-color: #e53935;
+    color: wheat;
+    background-color: #f47674;
 }
 
 /* Styling for horizontal rule */
@@ -178,6 +183,10 @@ input {
 
 /* Styling for required fields */
 label .required {
+    color: red;
+}
+
+p .required{
     color: red;
 }
 
@@ -195,16 +204,17 @@ label .required {
 
 /* Styling for the table */
 .styled-table {
+    border-radius: 20px;
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 10px ; /* Add spacing between columns */
     background-color: #ffffff;
 }
 
 .styled-table td, .styled-table th {
-    border: 1px solid #dddddd;
+    border-radius: 20px;
     text-align: left;
     padding: 12px;
-    border: 1px solid #ccc;
 }
 
 .styled-table tr:nth-child(even) {
@@ -276,4 +286,92 @@ label .required {
 
 form, .table-container {
     animation: slideIn 0.5s ease-out;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    text-align: center;
+    border-radius: 8px; /* Rounded corners */
+    padding: 8px 12px; /* Padding */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the text */
+    left: 50%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s; /* Smooth transition */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow */
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Show the tooltip text when hovering */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px); /* Move the tooltip slightly up */
+}
+
+
+footer {
+    display: none;
+    color: #000000;
+    font-size: medium;
+    font-weight: 700;
+}
+
+/* Styling for edit and delete buttons */
+.edit-btn{
+    padding: 10px 25px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 15px;
+    background-color: #07425b;
+    color: rgb(239, 239, 239);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #bec1be;
+    font-size: 100%;
+}
+.delete-btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 15px;
+    color: #2a2d2a;
+    background-color:#8cd072;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #bec1be;
+    font-size: 100%;
+}
+
+.edit-btn:hover{
+    background-color: #8cd072;
+    color: #07425b;
+}
+.delete-btn:hover {
+    color: wheat;
+    background-color: #f47674;
 }

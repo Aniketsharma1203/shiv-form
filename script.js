@@ -25,21 +25,27 @@ function addRow() {
 
     newRow.innerHTML = `
         <td>${rowCount}</td>
-        <td>${name}</td>
-        <td>${pan}</td>
-        <td>${dob}</td>
-        <td>${tel}</td>
         <td>
-            <button type="button" onclick="editRow(this)">Edit</button>
-            <button type="button" onclick="deleteRow(this)">Delete</button>
+            <div class="tooltip">${name}
+                <span class="tooltiptext">
+                    <strong>PAN:</strong> ${pan}<br>
+                    <strong>DOB:</strong> ${dob}<br>
+                    <strong>Tel:</strong> ${tel}
+                </span>
+            </div>
+        </td>
+        <td>
+            <button type="button" class="edit-btn" onclick="editRow(this)">Edit</button>
+            <button type="button" class="delete-btn" onclick="deleteRow(this)">Delete</button>
         </td>
     `;
 
     tableBody.appendChild(newRow);
     rowCount++;
     document.getElementById('info-form').reset();
+    const footer = document.querySelector('footer');
+    footer.style.display = 'block';
 }
-
 
 function clearFields() {
     document.getElementById('customer-name').value = '';
@@ -52,14 +58,16 @@ function editRow(button) {
     const row = button.parentElement.parentElement;
     const cells = row.getElementsByTagName('td');
 
+    const tooltip = cells[1].querySelector('.tooltiptext');
+    const info = tooltip.innerHTML.split('<br>');
+    
     document.getElementById('customer-name').value = cells[1].innerText;
-    document.getElementById('pan').value = cells[2].innerText;
-    document.getElementById('dob').value = cells[3].innerText;
-    document.getElementById('tel').value = cells[4].innerText;
+    document.getElementById('pan').value = info[0].split(': ')[1];
+    document.getElementById('dob').value = info[1].split(': ')[1];
+    document.getElementById('tel').value = info[2].split(': ')[1];
 
-    deleteRow(button); 
+    deleteRow(button);
 }
-//all 
 
 function deleteRow(button) {
     const row = button.parentElement.parentElement;
@@ -70,19 +78,25 @@ function deleteRow(button) {
         const noRecordsRow = document.createElement('tr');
         noRecordsRow.id = 'no-records';
         noRecordsRow.innerHTML = `
-            <td colspan="6">No records available</td>
+            <td colspan="3">No records available</td>
         `;
         tableBody.appendChild(noRecordsRow);
     }
 
     rowCount--;
+    if (tableBody.rows.length === 0) {
+        // Hide footer text if no records
+        const footer = document.querySelector('footer');
+        footer.style.display = 'none';
+    }
+
 }
 
 function resetTable() {
     const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = `
         <tr id="no-records">
-            <td colspan="6">No records available</td>
+            <td colspan="3">No records available</td>
         </tr>
     `;
     rowCount = 1;
