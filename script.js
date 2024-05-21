@@ -13,7 +13,7 @@ function addRow() {
         return; // Stop execution if any required field is empty
     }
     // Validate PAN length
-    if (pan.length > 10 || pan.length > 10) {
+    if (pan.length > 10 || pan.length < 10) {
         alert('PAN should be of 10 characters.');
         return;
     }
